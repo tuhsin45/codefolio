@@ -8,9 +8,9 @@ import ChatAi from '../components/ChatAi';
 import Editorial from '../components/Editorial';
 
 const langMap = {
-        cpp: 'C++',
-        java: 'Java',
-        javascript: 'JavaScript'
+        cpp: 'cpp',
+        java: 'java',
+        javascript: 'javascript'
 };
 
 
@@ -36,7 +36,7 @@ const ProblemPage = () => {
       try {
         
         const response = await axiosClient.get(`/problem/problemById/${problemId}`);
-       
+        console.log('Fetched problem data:', response.data); // Debug log
         
         const initialCode = response.data.startCode.find(sc => sc.language === langMap[selectedLanguage]).initialCode;
 
@@ -194,6 +194,18 @@ const ProblemPage = () => {
             <>
               {activeLeftTab === 'description' && (
                 <div>
+                  {/* Debug info - remove this later */}
+                  <div className="mb-4 p-2 bg-red-100 text-red-800 rounded text-xs">
+                    Debug: Problem loaded = {problem ? 'Yes' : 'No'}
+                    {problem && (
+                      <div>
+                        <div>Title: {problem.title || 'No title'}</div>
+                        <div>Description length: {problem.description ? problem.description.length : 'No description'}</div>
+                        <div>Visible test cases: {problem.visibleTestCases ? problem.visibleTestCases.length : 'No test cases'}</div>
+                      </div>
+                    )}
+                  </div>
+
                   <div className="flex items-center gap-4 mb-6">
                     <h1 className="text-2xl font-bold">{problem.title}</h1>
                     <div className={`badge badge-outline ${getDifficultyColor(problem.difficulty)}`}>
