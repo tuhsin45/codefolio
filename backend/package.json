@@ -1,13 +1,13 @@
 {
-  "name": "day01",
+  "name": "codefolio-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "CodeFolio backend server - Online coding platform API",
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon src/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["coding", "platform", "judge", "programming", "practice"],
+  "author": "tuhsin45",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
