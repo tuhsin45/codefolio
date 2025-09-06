@@ -29,8 +29,8 @@ app.use("/video",videoRouter);
 const InitalizeConnection = async ()=>{
     try{
 
-        await Promise.all([main(),redisClient.connect()]);
-        console.log("DB Connected");
+        await main();
+        console.log("DB Connected (Redis skipped)");
         
         app.listen(process.env.PORT, ()=>{
             console.log("Server listening at port number: "+ process.env.PORT);

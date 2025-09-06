@@ -1,4 +1,3 @@
-const redisClient = require("../config/redis");
 const User =  require("../models/user")
 const validate = require('../utils/validator');
 const bcrypt = require("bcrypt");
@@ -81,17 +80,9 @@ const login = async (req,res)=>{
 const logout = async(req,res)=>{
 
     try{
-        const {token} = req.cookies;
-        const payload = jwt.decode(token);
-
-
-        await redisClient.set(`token:${token}`,'Blocked');
-        await redisClient.expireAt(`token:${token}`,payload.exp);
-    //    Add token to Redis blockList
-    //    Clear the cookies
-
-    res.cookie("token",null,{expires: new Date(Date.now())});
-    res.send("Logged Out Successfully");
+        // Redis dependency removed - simply clear the cookie
+        res.cookie("token",null,{expires: new Date(Date.now())});
+        res.send("Logged Out Successfully");
 
     }
     catch(err){

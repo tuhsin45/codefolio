@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const redisClient = require("../config/redis")
 
 const userMiddleware = async (req,res,next)=>{
 
@@ -24,15 +23,9 @@ const userMiddleware = async (req,res,next)=>{
             throw new Error("User Doesn't Exist");
         }
 
-        // Redis ke blockList mein present toh nahi hai
-
-        const isBlocked = await redisClient.exists(`token:${token}`);
-
-        if(isBlocked)
-            throw new Error("Invalid token");
+        // Redis dependency removed - continuing without token blacklist
 
         req.result = result;
-
 
         next();
     }
