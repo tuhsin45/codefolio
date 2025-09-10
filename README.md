@@ -4,14 +4,14 @@ A fullstack web application for coding practice and problem solving, built with 
 
 ## Features
 
-- 🔐 User Authentication (Login/Signup)
-- 📝 Coding Problems with Multiple Languages Support (C++, Java, JavaScript)
-- ⚡ Real-time Code Execution via Judge0 API
-- 🤖 AI-powered Doubt Resolution using Google Gemini
-- 📊 Submission History and Analytics
-- 🎥 Video Tutorials for Problems
-- 👨‍💼 Admin Panel for Problem Management
-- 🔄 Redis Caching for Performance
+-  User Authentication (Login/Signup)
+-  Coding Problems with Multiple Languages Support (C++, Java, JavaScript)
+-  Real-time Code Execution via Judge0 API
+-  AI-powered Doubt Resolution using Google Gemini
+-  Submission History and Analytics
+-  Video Tutorials for Problems
+-  Admin Panel for Problem Management
+-  Redis Caching for Performance
 
 ## Tech Stack
 
